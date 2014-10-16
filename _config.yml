@@ -8,7 +8,7 @@ paginate_path: page/:num
 blog:
     name:                                                爱小北
     description:                                         I'm xiaobei' daddy.
-    title:                                               xxxxxx
+    title:                                               爱小北(ixiaobei)
     url:                                                 http://ixiaobei.com
     duoshuo:                                             ixiaobei
     tongji:                                              0342352f4bccf0707a8521a25b76376b
@@ -18,7 +18,7 @@ author:
     email:                                               mustang_1983@126.com
     weibo:                                               http://weibo.com/mahongming
     github:                                              https://github.com/hongmingma
-    logo:                                                # logo地址
+    logo:                                                /res/img/icon.png
     douban:
         name:                                            # 豆瓣地址名称
         key:                                             # 豆瓣API Key
