@@ -1,22 +1,23 @@
 markdown: kramdown
-highlighter: pygments
+highlighter: false
 permalink: blog/:year/:month/:day/:title.html
 paginate: 6
 paginate_path: page/:num
 
+
 blog:
-    name:                                                # 博客名称
-    description:                                         # 博客描述
-    title:                                               # 网页标题
-    url:                                                 # 博客地址
-    duoshuo:                                             # 多说ID
-    tongji:                                              # 百度统计ID
+    name:                                                爱小北
+    description:                                         I'm xiaobei' daddy.
+    title:                                               xxxxxx
+    url:                                                 http://ixiaobei.com
+    duoshuo:                                             ixiaobei
+    tongji:                                              0342352f4bccf0707a8521a25b76376b
     qiniu:                                               # 七牛云地址
 author:
-    name:                                                # 作者名称
-    email:                                               # 邮箱地址
-    weibo:                                               # 微博地址
-    github:                                              # GitHub地址
+    name:                                                marke
+    email:                                               mustang_1983@126.com
+    weibo:                                               http://weibo.com/mahongming
+    github:                                              https://github.com/hongmingma
     logo:                                                # logo地址
     douban:
         name:                                            # 豆瓣地址名称
