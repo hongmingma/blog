@@ -1,3 +1,2 @@
 User-Agent: *
-
-Sitemap: http://pexcn.tk/sitemap.txt
+Sitemap: http://ixiaobei.com/sitemap.txt
