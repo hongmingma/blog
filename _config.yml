@@ -3,8 +3,7 @@ highlighter: false
 permalink: blog/:year/:month/:day/:title.html
 paginate: 6
 paginate_path: page/:num
-
-
+zhaopiantotal: 30
 blog:
     name:                                                爱小北
     description:                                         I'm xiaobei' daddy.

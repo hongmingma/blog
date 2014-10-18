@@ -20,7 +20,8 @@
 <body>
 <div id="blog">{% include sidebar.html %} <header>
 <h1></h1>
-</header>
+<input id="zhaopiantotal" type="hidden" value="{{ site.zhaopiantotal }}" />
+
 <div class="main">
 <div id="wookmain">
 <ul id="tiles">
@@ -101,6 +102,8 @@
 <!-- Once the page is loaded, initalize the plug-in. -->
 <script type="text/javascript">
     (function ($){
+      var total = $('#zhaopiantotal').val();
+      var index = 10;
       var $tiles = $('#tiles'),
           $handler = $('li', $tiles),
           $main = $('#wookmain'),
@@ -159,17 +162,30 @@
 
         if (closeToBottom) {
           // Get the first then items from the grid, clone them, and add them to the bottom of the grid
-          var $items = $('li', $tiles);
-             // $firstTen = $items.slice(0, 2);
-          	  //$tiles.append($firstTen.clone());
-          	  $tiles.each(function(){
-          		for (var i=0;i<10;i++)
-          		{
-          			var imgtest='<li><img src="http://marke.qiniudn.com/xiangce'+Math.floor(Math.random()*30+1)+'.jpg" ><p>ixiaobei.com</p></li>';
-          			$(this).append(imgtest);
-          		}
-          	  });
-          applyLayout();
+	        var $items = $('li', $tiles);
+	        if(index+10<total){
+	        	for (var i=0;i<10;i++)
+	       		{
+	        		index++;
+	        		var imgtest='<li><img src="http://marke.qiniudn.com/xiangce'+index+'.jpg" ><p>ixiaobei.com</p></li>';
+	       			$tiles.append(imgtest);
+	       		}
+	        }else if(index<total){
+	        	for (var i=index;i<total;i++)
+	        	{
+	        		index++;
+	        		var imgtest='<li><img src="http://marke.qiniudn.com/xiangce'+index+'.jpg" ><p>ixiaobei.com</p></li>';
+	       			$tiles.append(imgtest);
+	       		}
+	        	alert("喔噢，已经没图了，再刷就是随机出图了");
+	        }else{
+	        	for (var i=0;i<10;i++)
+	       		{
+	        		var imgtest='<li><img src="http://marke.qiniudn.com/xiangce'+Math.floor(Math.random()*total+1)+'.jpg" ><p>ixiaobei.com</p></li>';
+	       			$tiles.append(imgtest);
+	       		}
+	        }
+         	applyLayout();
         }
       };
 
