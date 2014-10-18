@@ -10,9 +10,9 @@
   icon:  fa fa-book
   title: 阅读
 
-- href: /life/index.html
-  icon: fa fa-eyedropper
-  title: 记录
+- href: /page/wook.html
+  icon: fa fa fa-camera-retro
+  title: 照片墙
   newblank: true
 
 - href: /page/about.html
