@@ -5,9 +5,9 @@ paginate: 6
 paginate_path: page/:num
 zhaopiantotal: 30
 blog:
-    name:                                                爱小北
+    name:                                                ixiaobei
     description:                                         I'm xiaobei' daddy.
-    title:                                               爱小北(ixiaobei)
+    title:                                               ixiaobei
     url:                                                 http://ixiaobei.com
     duoshuo:                                             ixiaobei
     tongji:                                              0342352f4bccf0707a8521a25b76376b
