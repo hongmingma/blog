@@ -117,7 +117,8 @@ a:link {
 }
 
 .profilepic {
-    margin-top: 12%;
+    #margin-top: 12%;
+    margin-top: 3%;
     #margin-top: 10px;
 }
 
@@ -147,7 +148,7 @@ a:link {
 
 .title {
     font-family: segoepr;
-    font-size: 40px;
+    font-size: 32px;
     margin-top: -3%;
 }
 
@@ -176,7 +177,8 @@ a:link {
 }
 
 #nav {
-    margin: 8% 0 8% -10%;
+    #margin: 8% 0 8% -10%;
+    margin: 2% 0 2% -3%;
 }
 
 #nav ul {
