@@ -118,12 +118,12 @@ a:link {
 
 .profilepic {
     #margin-top: 12%;
-    margin-top: 10px;
+    margin-top: 3%;
 }
 
 .profilepic img {
-    height: 150px;
-    width: 150px;
+    height: 135px;
+    width: 135px;
     border: 4px solid rgba(0,100,200,0.5);
     border-radius: 50%;
     -moz-border-radius: 50%;
@@ -147,7 +147,7 @@ a:link {
 
 .title {
     font-family: segoepr;
-    font-size: 40px;
+    font-size: 32px;
     margin-top: -3%;
 }
 
@@ -176,7 +176,8 @@ a:link {
 }
 
 #nav {
-    margin: 8% 0 8% -10%;
+    #margin: 8% 0 8% -10%;
+    margin: 2% 0 2% -3%;
 }
 
 #nav ul {
@@ -816,8 +817,8 @@ pre code {
 
 @media (max-width:1300px) {
     .profilepic img {
-        height: 140px;
-        width: 140px;
+        height: 120px;
+        width: 120px;
     }
 
     .title {
@@ -835,8 +836,8 @@ pre code {
 
 @media (max-width:1160px) {
     .profilepic img {
-        height: 130px;
-        width: 130px;
+        height: 110px;
+        width: 110px;
     }
 
     .title {
@@ -864,8 +865,8 @@ pre code {
 
 @media (max-width:1085px) {
     .profilepic img {
-        height: 120px;
-        width: 120px;
+        height: 100px;
+        width: 100px;
     }
 
     .title {
@@ -887,8 +888,8 @@ pre code {
 
 @media (max-width:975px) {
     .profilepic img {
-        height: 110px;
-        width: 110px;
+        height: 100px;
+        width: 100px;
     }
 
     .title {
@@ -918,8 +919,8 @@ pre code {
 
 @media (max-width:875px) {
     .profilepic img {
-        height: 130px;
-        width: 130px;
+        height: 100px;
+        width: 100px;
     }
 
     .sidebar {
