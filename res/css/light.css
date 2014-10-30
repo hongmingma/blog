@@ -71,7 +71,8 @@ iframe {
 }
 
 strong,b {
-    color: #525d67;
+    #color: #525d67;
+    color: red;
 }
 
 table {
