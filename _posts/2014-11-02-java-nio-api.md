@@ -164,12 +164,6 @@ SelectionKey key = channel.register(selector, Selectionkey.OP_READ);
 * SelectionKey.OP_READ
 * SelectionKey.OP_WRITE 
 
-***TODO 待续***
-  
-
-
-
-
 
   
 
