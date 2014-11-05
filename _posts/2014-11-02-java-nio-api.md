@@ -150,19 +150,53 @@ SelectionKey key = channel.register(selector, Selectionkey.OP_READ);
 {% endhighlight %} 
 ***注意register()方法的第二个参数,这是一个“interest集合”，意思是在通过Selector监听Channel时对什么事件或一组事件感兴趣。***
 
-可以监听如下四种不同类型的事件：
+* 可以监听如下四种不同类型的事件：
 
-* Connect
-* Accept
-* Read
-* Write
+监听事件|事件常量|是否就绪
+Connect|SelectionKey.OP_CONNECT|key.isAcceptable()
+Accept|SelectionKey.OP_ACCEPT|key.isConnectable();
+Read|SelectionKey.OP_READ|key.isReadable();  
+Write|SelectionKey.OP_WRITE |key.isWritable(); 
 
-通道触发了一个事件意思是该事件已经就绪，上述四个事件的就绪常量表示对应如下：
+* 选择通道
+ 
+>>select()	阻塞到至少有一个通道在你注册的事件上就绪了。 
 
-* SelectionKey.OP_CONNECT
-* SelectionKey.OP_ACCEPT
-* SelectionKey.OP_READ
-* SelectionKey.OP_WRITE 
+>>select(long timeout)	和select()一样，除了最长会阻塞timeout毫秒(参数)。 
+
+>>selectNow()不会阻塞，不管什么通道就绪都立刻返回
+
+* selectedKeys() 获取就绪事件，从而获取通道信息
+{% highlight java %}
+Set selectedKeys = selector.selectedKeys();  
+Iterator keyIterator = selectedKeys.iterator();  
+while(keyIterator.hasNext()) {  
+    SelectionKey key = keyIterator.next();  
+    if(key.isAcceptable()) {  
+         // a connection was accepted by a ServerSocketChannel.  
+         SocketChannel sc=(SocketChannel)key.channel();  
+         sc.configureBlocking(false);  
+         //对监听到连接事件的通道再注册读事件
+		 sc.register(selector, SelectionKey.OP_READ);
+         sc.finishConnect();   
+    } else if (key.isConnectable()) {  
+        // a connection was established with a remote server.  
+    } else if (key.isReadable()) {  
+         // a channel is ready for reading  
+    } else if (key.isWritable()) {  
+        // a channel is ready for writing  
+    }
+   }
+{% endhighlight %} 
+
+
+	  
+	 
+	
+	 
+
+
+
 
 
   
