@@ -189,6 +189,15 @@ while(keyIterator.hasNext()) {
    }
 {% endhighlight %} 
 
+* wakeUp() 
+
+>>某个线程调用 selector.select()方法后阻塞了，即使没有通道已经就绪，也有办法让其从select()方法返回。
+这时只要让另一个线程调用selector.wakeup()方法阻塞在select()方法上的线程会立马返回。两个selector是同一个实例。
+
+* close()
+
+>>用完Selector后调用其close()方法会关闭该Selector，且使注册到该Selector上的所有SelectionKey实例无效。通道本身并不会关闭。 
+
 
 	  
 	 
