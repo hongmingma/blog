@@ -4,7 +4,6 @@ title: 一道有趣的java线程题
 category: [并发编程]
 ---
 
-[原文地址](http://pjwqq.iteye.com/blog/2085117#comments)
 
 之前在iteye答复过一道问题和最近总结的东西很应景，今天无意中又看到这道题，把自己当时的处理方式记录一下。
 
