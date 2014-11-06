@@ -24,7 +24,7 @@ public class Blackhole {
 }  
 {% endhighlight %} 
 
-思路：把锁抢走并且不阻塞主线程。
+思路：把锁抢走，在没有抢到锁之前要一直阻塞主线程，抢到锁之后不给主线程再抢回锁的机会。
 
 方法1：
 {% highlight java %}
