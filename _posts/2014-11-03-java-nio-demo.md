@@ -3,7 +3,6 @@ layout: post
 title: JAVA NIO 使用示例
 category: [并发编程,NIO]
 ---
-[参考：《分布式JAVA应用》 ](http://book.douban.com/subject/4848587/)
 
 ####1.	 TCP/IP+NIO 客户端和服务器端代码片段
 Channel有SocketChannel和ServerSocketChannel两种，SocketChannel用于建立连接、监听事件及操作读写，
@@ -100,6 +99,8 @@ if(nKeys>0){
 {% endhighlight %} 
 
   
+[参考：《分布式JAVA应用》 ](http://book.douban.com/subject/4848587/)
+
 
 
 

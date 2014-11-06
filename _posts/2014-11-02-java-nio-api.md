@@ -3,7 +3,6 @@ layout: post
 title: JAVA NIO 核心组件 API
 category: 并发编程
 ---
-[参考：Java NIO 系列教程  ](http://www.iteye.com/magazines/132-Java-NIO)
 
 JAVA NIO核心组件 为Channels、Buffers、Selectors，下面分别介绍主要API及使用方式，会在接下来的几篇博客写NIO示例及分析经典应用示例。
 
@@ -196,7 +195,11 @@ while(keyIterator.hasNext()) {
 
 * close()
 
->>用完Selector后调用其close()方法会关闭该Selector，且使注册到该Selector上的所有SelectionKey实例无效。通道本身并不会关闭。 
+>>用完Selector后调用其close()方法会关闭该Selector，且使注册到该Selector上的所有SelectionKey实例无效。通道本身并不会关闭。
+
+
+
+[参考：Java NIO 系列教程  ](http://www.iteye.com/magazines/132-Java-NIO) 
 
 
 	  

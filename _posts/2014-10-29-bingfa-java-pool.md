@@ -3,7 +3,6 @@ layout: post
 title: java线程池的实现原理
 category: 并发编程
 ---
-[参考：原文转发整理](http://www.infoq.com/cn/articles/java-threadPool?utm_source=infoq&utm_medium=related_content_link&utm_campaign=relatedContent_articles_clk)
 
 ####	1. java 线程池创建
   ThreadPoolExecutor来创建一个线程池，java并发包内几个线程池都是通过调整如下方法的参数而来。
@@ -60,6 +59,8 @@ category: 并发编程
   请求数达到边界时既不能充分调用CPU，又可能因为无界队列任务过多导致内存溢出，特别是遇到类似DDOS攻击的情况。通常WEB服务器的设计为了
   充分实现并发并且不丢失请求，会固定线程池的大小，启用无界队列，但这样也给请求峰值留下了内存溢出的隐患，所以如何设置还需要慎重考虑。
  如果类似广告系统允许系统丢失一些请求，但需要无宕机正常服务99%的用户，设置成有界队列也是一种不错的选择，如何设置还要看服务的性质。
+ 
+[参考：JAVA线程池的分析和使用](http://www.infoq.com/cn/articles/java-threadPool?utm_source=infoq&utm_medium=related_content_link&utm_campaign=relatedContent_articles_clk)
 
 
 
