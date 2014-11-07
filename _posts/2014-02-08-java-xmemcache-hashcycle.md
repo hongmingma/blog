@@ -15,7 +15,7 @@ xmemcache，Jedis是用的比较多的客户端程序，二者关于一致性HAS
 * 根据每个节点 配置的权(weight)为每个节点虚拟节点数(160*weight)，之所以虚拟这么多节点是为了尽量避免请求时数据集中命中少数节点，同时权越高命中的几率越大
 一致性HASH环如果节点过少很容易形成数据热点，不利于打散数据。至于为什么采用160而不是161应该是经验值，看作者的注释应该是从nginx学来的，我没有深究。
 
-* 根据每个节点的name\weight\order计算出一致性hash值 顺时针0-2³²-1,构造一致性HASH环，用treemap存储映射关系。
+* 根据每个节点的name、weight、order计算出一致性hash值 顺时针0-2³²-1,构造一致性HASH环，用treemap存储映射关系。
 	{% highlight java %}
 	    private void initialize(List<S> shards) {
 	        nodes = new TreeMap<Long, S>();

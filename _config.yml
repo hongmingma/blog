@@ -5,8 +5,8 @@ paginate: 6
 paginate_path: page/:num
 zhaopiantotal: 30
 blog:
-    name:                                                ixiaobei
-    description:                                         I'm xiaobei' daddy.
+    name:                                                marke' blog
+    description:                                         Keep It Simple, Stupid!
     title:                                               ixiaobei
     url:                                                 http://ixiaobei.com
     duoshuo:                                             ixiaobei
