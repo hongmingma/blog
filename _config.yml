@@ -5,7 +5,7 @@ paginate: 6
 paginate_path: page/:num
 zhaopiantotal: 30
 blog:
-    name:                                                marke' blog
+    name:                                                
     description:                                         Keep It Simple, Stupid!
     title:                                               ixiaobei
     url:                                                 http://ixiaobei.com
