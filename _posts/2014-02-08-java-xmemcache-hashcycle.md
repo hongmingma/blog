@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  xmemcache Jedis 一致性hash的实现
-category: [分布式缓存]
+category: [分布式]
 ---
 
 redis,memcached在做大规模集群分片部署的情况时，客户端读写数据主要采用一致性hash的方式打散数据。
