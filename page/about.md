@@ -7,4 +7,4 @@ title: 关于
 
 ###A Little About Me.
 
-Coding是一件很苦逼的事，要么享受它，要么停止它。
+<div style="display:none">Coding是一件很苦逼的事，要么享受它，要么停止它。</div>
