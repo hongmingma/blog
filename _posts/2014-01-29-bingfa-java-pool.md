@@ -59,6 +59,61 @@ category: 并发编程
   请求数达到边界时既不能充分调用CPU，又可能因为无界队列任务过多导致内存溢出，特别是遇到类似DDOS攻击的情况。通常WEB服务器的设计为了
   充分实现并发并且不丢失请求，会固定线程池的大小，启用无界队列，但这样也给请求峰值留下了内存溢出的隐患，所以如何设置还需要慎重考虑。
  如果类似广告系统允许系统丢失一些请求，但需要无宕机正常服务99%的用户，设置成有界队列也是一种不错的选择，如何设置还要看服务的性质。
+
+>如restlet在整合jetty的时候默认采用的无界队列，而且封装过程不对外开放。
+在遇到的DDOS攻击时会由于内存溢出导致宕机，在出现特殊情况如果允许丢部分请求，可以设置有限队列，只能通过反射启动时动态修改配置信息
+{% highlight java %}
+public static void main(String[] args) throws Exception {
+          System.setProperty("org.restlet.engine.loggerFacadeClass", "org.restlet.ext.slf4j.Slf4jLoggerFacade");
+          CommonUtils.loadLogbackConfiguration(CommonUtils.__CONF_DIR__);
+          LOGGER.info("TotalMemory:" + Runtime.getRuntime().totalMemory() / (1024 * 1024) + " M");
+
+          final org.restlet.Component component = new org.restlet.Component();
+          Injector injector = RestletGuice.createInjector(new GuiceModule());
+          Configuration configuration = injector.getInstance(Configuration.class);
+
+          Application application = new Application(injector);
+          component.getDefaultHost().attach("/feedback", application);
+          Server server = component.getServers().add(Protocol.HTTP, configuration.getInt("server.port"));
+
+          // jetty config
+          server.getContext().getParameters().add("minThreads", "50");
+          server.getContext().getParameters().add("maxThreads", "1536");
+          server.getContext().getParameters().add("acceptorThreads", "4");
+          server.getContext().getParameters().add("gracefulShutdown", "5000");
+          server.getContext().getParameters().add("useForwardedForHeader", "true");
+          component.start();
+          //下面代码解决restlet 2.0 版本线程队列过长（int 最大值），对jetty整合有问题，很多参数没办法外边配置了，导致请求量过载或者遇到DDOS攻击 直接挂掉，不会扔请求
+          Class clazz = server.getClass();
+          Method m = clazz.getDeclaredMethod("getHelper");
+          m.setAccessible(true);
+          org.restlet.ext.jetty.HttpServerHelper helper = (org.restlet.ext.jetty.HttpServerHelper) m.invoke(server);
+
+          m = JettyServerHelper.class.getDeclaredMethod("getWrappedServer");
+          m.setAccessible(true);
+          org.eclipse.jetty.server.Server s = (org.eclipse.jetty.server.Server) m.invoke(helper);
+
+          m = s.getClass().getMethod("getThreadPool");
+          m.setAccessible(true);
+          QueuedThreadPool pool = (QueuedThreadPool) m.invoke(s);
+          Field f = pool.getClass().getDeclaredField("_jobs");
+          f.setAccessible(true);
+          f.set(pool, new ArrayBlockingQueue<Runnable>(50000));
+
+          LOGGER.info("Sever started on " + Inet4Address.getLocalHost().getHostAddress() + ":" + configuration.getInt("server.port"));
+          Runtime.getRuntime().addShutdownHook(new Thread() {
+               public void run() {
+                    try {
+                         component.stop();
+                         LOGGER.info("gracefully shutdown feedback system");
+                    } catch (Exception e) {
+                         e.printStackTrace();
+                    }
+               }
+          });
+          SignalManager.install();
+     }
+{% endhighlight %}
  
 [参考：JAVA线程池的分析和使用](http://www.infoq.com/cn/articles/java-threadPool?utm_source=infoq&utm_medium=related_content_link&utm_campaign=relatedContent_articles_clk)
 
