@@ -28,19 +28,19 @@ config servers.
 四台服务器搭建4个shard,如下列表列出每个服务器节点需要安装的服务，每个节点都是数据节点,1、2、3上面安装配置节点存储metadata 避免单点，
 1、4安装路由节点，负责负载均衡请求。
 
->ip分配
+>服务器IP
 
 1,10.20.0.14 | 2,10.20.0.15 | 3,10.20.0.16 | 4,10.20.0.17
 
->shard的IP节点分配
+>shard的IP分配
 
 shard_a(1,2,3) | shard_b(2,3,4) | shard_c(3,4,1) | shard_d(4,1,2)
 
->Config servers的IP节点分配
+>Config servers的IP分配
 
 config_server(1) | config_server(2) | config_server(3)
 
->mongos 的IP节点分配
+>mongos 的IP分配
 
 mongos(1)	|	mongos(3)
 
@@ -52,9 +52,9 @@ shard_a:27018 | shard_b:27019 | shard_c:27020 | shard_d:27021| config_server:270
 
 ***1、每个节点安装服务配置文件目录结构***
 
-安装过程略，挤压即可，比较简单，安装服务的配置文件目录结构。
+安装过程略，解压即可，如过配置文件中指定的文件夹不存在，mkdir创建即可 如 mkdir shard_a ，比较简单，安装服务的配置文件目录结构。
 
-***1-10.20.0.14节点是shard_a/c/d的一个节点，同时还要安装congfig server 和 mongos***
+1-10.20.0.14节点是shard_a/c/d的一个节点，同时还要安装congfig server 和 mongos
 {% highlight java %}
 /home/work/local/mongodb-2.6.4/etc  
 ├── config_server.conf  
@@ -64,7 +64,7 @@ shard_a:27018 | shard_b:27019 | shard_c:27020 | shard_d:27021| config_server:270
 └── shard_d.conf 
 {% endhighlight %} 
 
-***2-10.20.0.15节点是shard_a/b/d的一个节点，同时还要安装congfig server ***
+2-10.20.0.15节点是shard_a/b/d的一个节点，同时还要安装congfig server
 {% highlight java %}
 /home/work/local/mongodb-2.6.4/etc
 ├── config_server.conf
@@ -73,7 +73,7 @@ shard_a:27018 | shard_b:27019 | shard_c:27020 | shard_d:27021| config_server:270
 └── shard_d_arbiter.conf
 {% endhighlight %} 
 
-***3-10.20.0.16节点是shard_a/b/c的一个节点，同时还要安装congfig server 和 mongos***
+3-10.20.0.16节点是shard_a/b/c的一个节点，同时还要安装congfig server 和 mongos
 {% highlight java %}
 /home/work/local/mongodb-2.6.4/etc  
 ├── config_server.conf
@@ -83,7 +83,7 @@ shard_a:27018 | shard_b:27019 | shard_c:27020 | shard_d:27021| config_server:270
 └── shard_c.conf
 {% endhighlight %} 
 
-***4-10.20.0.17节点是shard_b/c/d的一个节点***
+4-10.20.0.17节点是shard_b/c/d的一个节点
 {% highlight java %}
 /home/work/local/mongodb-2.6.4/etc  
 ├── shard_b_arbiter.conf
