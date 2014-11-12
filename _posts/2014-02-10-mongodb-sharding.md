@@ -4,6 +4,7 @@ title:  搭建mongodb sharding 集群
 category: [分布式,nosql]
 ---
 [参考：MongoDB-sharding-guide](http://docs.mongodb.org/master/MongoDB-sharding-guide.pdf)
+
 [参考：集群认证方式](http://docs.mongodb.org/manual/tutorial/enable-authentication-in-sharded-cluster/)
 
 
