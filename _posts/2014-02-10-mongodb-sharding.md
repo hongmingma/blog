@@ -4,6 +4,8 @@ title:  搭建mongodb sharding 集群
 category: [分布式,nosql]
 ---
 [参考：MongoDB-sharding-guide](http://docs.mongodb.org/master/MongoDB-sharding-guide.pdf)
+[参考：集群认证方式](http://docs.mongodb.org/manual/tutorial/enable-authentication-in-sharded-cluster/)
+
 
 ### 集群架构图
 
@@ -104,6 +106,7 @@ fork=true
 dbpath=/home/work/local/mongodb-2.6.4/data/shard_a/
 logpath=/home/work/local/mongodb-2.6.4/logs/shard_a.log
 logappend=true
+#制定集群间简单认证方式 shard_key中的内容所有节点需要一致，这一步不是不需的
 keyFile=/home/work/local/mongodb-2.6.4/data/key/shard_key
 shardsvr=true
 replSet=shard_a
