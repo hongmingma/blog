@@ -3,7 +3,7 @@ highlighter: false
 permalink: blog/:year/:month/:day/:title.html
 paginate: 6
 paginate_path: page/:num
-zhaopiantotal: 30
+zhaopiantotal: 40
 blog:
     name:                                                
     description:                                         Keep It Simple, Stupid!
