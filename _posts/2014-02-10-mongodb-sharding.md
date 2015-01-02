@@ -9,7 +9,7 @@ category: [分布式,nosql]
 
 
 ### 集群架构图
-
+![Alt text](/images/mongo1.png)
 ![Alt text](/images/mongo.png)
 
 ***Shards*** store the data. To provide high availability and data consistency, in a production sharded cluster, each shard is
