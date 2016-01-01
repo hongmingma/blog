@@ -1,6 +1,6 @@
 ---
 title: sitemap.txt
-permalink: sitemap.txt1
+permalink: sitemap.txt
 ---
 {% for page in site.pages reversed %}
 {{ site.blog.url }}{{ page.url }}{% endfor %}
