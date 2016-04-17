@@ -3,7 +3,8 @@ layout: blog
 index: true
 ---
 <div>hello aa{{ site.posts.size }}</div>
-{% for post in paginator.posts %}
+<div>hello aa{{ paginator.posts.size }}</div>
+{% for post in site.posts %}
 <div class="posts">
   <section class="post">
     <header class="post-header">
