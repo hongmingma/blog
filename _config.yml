@@ -1,0 +1,23 @@
+markdown: kramdown
+highlighter: false
+permalink: blog/:year/:month/:day/:title.html
+paginate: 6
+paginate_path: page/:num
+zhaopiantotal: 40
+blog:
+    name:                                                
+    description:                                         Keep It Simple, Stupid!
+    title:                                               ixiaobei
+    url:                                                 http://ixiaobei.com
+    duoshuo:                                             ixiaobei
+    tongji:                                              0342352f4bccf0707a8521a25b76376b
+    qiniu:                                               # 七牛云地址
+author:
+    name:                                                marke
+    email:                                               mustang_1983@126.com
+    weibo:                                               http://weibo.com/mahongming
+    github:                                              https://github.com/hongmingma
+    logo:                                                /res/img/icon.png
+    douban:
+        name:                                            63109139
+        key:                                             0fc69465cb57f2002f53bd316207d600

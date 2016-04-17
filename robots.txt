@@ -1,0 +1,3 @@
+User-Agent: *
+Allow: /blog/
+Sitemap: http://ixiaobei.com/sitemap.txt

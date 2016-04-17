@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="description" content="{{ site.blog.title }}">
+<meta name="author" content="{{ site.author.name }}">
+<link rel="canonical" href="{{ site.blog.url }}{{ page.url }}">
+<link rel="icon" href="/res/img/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/res/img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/res/css/public.css">
+<link rel="stylesheet" href="/res/css/light.css">
+<!-- CSS Reset -->
+<link rel="stylesheet" href="/wook/css/reset.css">
+<!-- Global CSS for the page and tiles -->
+<link rel="stylesheet" href="/wook/css/main.css">
+<script src="/res/js/light.js"></script>
+</head>
+<body>
+<div id="blog">{% include sidebar.html %} <header>
+<h1></h1>
+<input id="zhaopiantotal" type="hidden" value="{{ site.zhaopiantotal }}" />
+
+<div class="main">
+<div id="wookmain">
+<ul id="tiles">
+	<li><img src="http://marke.qiniudn.com/xiangce1.jpg">
+	<p>ixiaobei.com</p>
+	</li>
+	<li><img src="http://marke.qiniudn.com/xiangce2.jpg">
+	<p>ixiaobei.com</p>
+	</li>
+	<li><img src="http://marke.qiniudn.com/xiangce3.jpg">
+	<p>ixiaobei.com</p>
+	</li>
+	<li><img src="http://marke.qiniudn.com/xiangce4.jpg">
+	<p>ixiaobei.com</p>
+	</li>
+	<li><img src="http://marke.qiniudn.com/xiangce5.jpg">
+	<p>ixiaobei.com</p>
+	</li>
+	<li><img src="http://marke.qiniudn.com/xiangce6.jpg">
+	<p>ixiaobei.com</p>
+	</li>
+	<li><img src="http://marke.qiniudn.com/xiangce7.jpg">
+	<p>ixiaobei.com</p>
+	</li>
+	<li><img src="http://marke.qiniudn.com/xiangce8.jpg">
+	<p>ixiaobei.com</p>
+	</li>
+	<li><img src="http://marke.qiniudn.com/xiangce9.jpg">
+	<p>ixiaobei.com</p>
+	</li>
+	<li><img src="http://marke.qiniudn.com/xiangce10.jpg">
+	<p>ixiaobei.com</p>
+	</li>
+	<li><img src="http://marke.qiniudn.com/xiangce11.jpg">
+	<p>ixiaobei.com</p>
+	</li>
+	<li><img src="http://marke.qiniudn.com/xiangce12.jpg">
+	<p>ixiaobei.com</p>
+	</li>
+	<li><img src="http://marke.qiniudn.com/xiangce13.jpg">
+	<p>ixiaobei.com</p>
+	</li>
+	<li><img src="http://marke.qiniudn.com/xiangce14.jpg">
+	<p>ixiaobei.com</p>
+	</li>
+	<li><img src="http://marke.qiniudn.com/xiangce15.jpg">
+	<p>ixiaobei.com</p>
+	</li>
+	<li><img src="http://marke.qiniudn.com/xiangce16.jpg">
+	<p>ixiaobei.com</p>
+	</li>
+	<li><img src="http://marke.qiniudn.com/xiangce17.jpg">
+	<p>ixiaobei.com</p>
+	</li>
+	<li><img src="http://marke.qiniudn.com/xiangce18.jpg">
+	<p>ixiaobei.com</p>
+	</li>
+	<li><img src="http://marke.qiniudn.com/xiangce19.jpg">
+	<p>ixiaobei.com</p>
+	</li>
+	<li><img src="http://marke.qiniudn.com/xiangce20.jpg">
+	<p>ixiaobei.com</p>
+	</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+<!-- include jQuery -->
+<script src="/wook/libs/jquery.min.js"></script>
+<!-- Include the imagesLoaded plug-in -->
+<script src="/wook/libs/jquery.imagesloaded.js"></script>
+<!-- Include the plug-in -->
+<script src="/wook/jquery.wookmark.min.js"></script>
+
+<!-- Once the page is loaded, initalize the plug-in. -->
+<script type="text/javascript">
+    (function ($){
+      var total = $('#zhaopiantotal').val();
+      var index = 10;
+      var $tiles = $('#tiles'),
+          $handler = $('li', $tiles),
+          $main = $('#wookmain'),
+          $window = $(window),
+          $document = $(document),
+          options = {
+            autoResize: true, // This will auto-update the layout when the browser window is resized.
+            blog: $main, // Optional, used for some extra CSS styling
+            offset: 10, // Optional, the distance between grid items
+            itemWidth: 210 // Optional, the width of a grid item
+          };
+
+      /**
+       * Reinitializes the wookmark handler after all images have loaded
+       */
+      function applyLayout() {
+        $('#tiles').imagesLoaded(function() {
+        // Prepare layout options.
+        var options = {
+          itemWidth: 210, // Optional min width of a grid item
+          autoResize: true, // This will auto-update the layout when the browser window is resized.
+          container: $('#tiles'), // Optional, used for some extra CSS styling
+          offset: 5, // Optional, the distance between grid items
+          outerOffset: 20, // Optional the distance from grid to parent
+          flexibleWidth: '100%' // Optional, the maximum width of a grid item
+        };
+
+        // Get a reference to your grid items.
+        var handler = $('#tiles li');
+
+        var $window = $(window);
+        $window.resize(function() {
+          var windowWidth = $window.width(),
+              newOptions = { flexibleWidth: '100%' };
+
+          // Breakpoint
+          if (windowWidth < 1024) {
+            newOptions.flexibleWidth = '100%';
+          }
+
+          handler.wookmark(newOptions);
+        });
+
+        // Call the layout function.
+        handler.wookmark(options);
+      });
+      }
+
+      /**
+       * When scrolled all the way to the bottom, add more tiles
+       */
+      function onScroll() {
+        // Check if we're within 100 pixels of the bottom edge of the broser window.
+        var winHeight = window.innerHeight ? window.innerHeight : $window.height(), // iphone fix
+            closeToBottom = ($window.scrollTop() + winHeight > $document.height() - 100);
+
+        if (closeToBottom) {
+          // Get the first then items from the grid, clone them, and add them to the bottom of the grid
+	        var $items = $('li', $tiles);
+	        if(index+10<total){
+	        	for (var i=0;i<10;i++)
+	       		{
+	        		index++;
+	        		var imgtest='<li><img src="http://marke.qiniudn.com/xiangce'+index+'.jpg" ><p>ixiaobei.com</p></li>';
+	       			$tiles.append(imgtest);
+	       		}
+	        }else if(index<total){
+	        	for (var i=index;i<total;i++)
+	        	{
+	        		index++;
+	        		var imgtest='<li><img src="http://marke.qiniudn.com/xiangce'+index+'.jpg" ><p>ixiaobei.com</p></li>';
+	       			$tiles.append(imgtest);
+	       		}
+	        	//alert("喔噢，已经没图了，再刷就是随机出图了")
+	        	console.log("喔噢，已经没图了，再刷就是随机出图了");
+	        }else{
+	        	for (var i=0;i<10;i++)
+	       		{
+	        		var imgtest='<li><img src="http://marke.qiniudn.com/xiangce'+Math.floor(Math.random()*total+1)+'.jpg" ><p>ixiaobei.com</p></li>';
+	       			$tiles.append(imgtest);
+	       		}
+	        }
+         	applyLayout();
+        }
+      };
+
+      // Call the layout function for the first time
+      applyLayout();
+
+      // Capture scroll event.
+      $window.bind('scroll.wookmark', onScroll);
+    })(jQuery);
+</script>
+</body>
+</html>
