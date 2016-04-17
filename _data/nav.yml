@@ -10,9 +10,9 @@
   icon:  fa fa-book
   title: 阅读
 
-- href: /life/index.html
-  icon: fa fa-eyedropper
-  title: 记录
+- href: /page/zhaopianqiang.html
+  icon: fa fa fa-camera-retro
+  title: 小北
   newblank: true
 
 - href: /page/about.html
