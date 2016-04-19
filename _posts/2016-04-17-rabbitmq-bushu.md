@@ -19,7 +19,7 @@ category: 消息队列
 
 	备注：
 	安装过程中可能因为一些包的冲突导致安装失败，卸载冲突的包，重新安装即可
-	sodu rpm -e esl-erlang-18.3-1.x86_64
+	sudo rpm -e esl-erlang-18.3-1.x86_64
 
 ####2、安装rabbitmq server
 
